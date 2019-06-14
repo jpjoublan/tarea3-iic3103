@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1>Tarea 3</h1>
+  </div>
+
+
+</div>
+<h1> {{ data.title }} </h1>
+<body>
+    <p>Opening crawl: {{data.openingCrawl}}</p>
+    <p>Episode id: {{data.episodeID}}</p>
+    <p>Director: {{data.director}}</p>
+    <p>Producer: {{data.producers}}</p>
+    <p>Release date: {{data.releaseDate}}</p>
+        <table>
+            <tr>
+                <th>Characters</th>
+            </tr>
+            <ul>
+            {% for k in characters %}
+                <tr>
+                    <td><a href="/characters/?info={{ k.node.id }}"> {{k.node.name}}</a></td>
+                </tr>
+            {% endfor %}
+            </ul>
+        </table>
+        <table>
+            <tr>
+                <th>Planets</th>
+            </tr>
+            <ul>
+            {% for j in planets %}
+                <tr>
+                    <td><a href="/planets/?info={{ j.node.id }}"> {{j.node.name}}</a></td>
+                </tr>
+            {% endfor %}
+            </ul>
+        </table>
+        <table>
+            <tr>
+                <th>Starships</th>
+            </tr>
+            <ul>
+            {% for i in starships %}
+                <tr>
+                    <td><a href="/starships/?info={{ i.node.id }}"> {{i.node.name}}</a></td>
+                </tr>
+            {% endfor %}
+            </ul>
+        </table>
+    <p>Created: {{data.created}}</p>
+    <p>Edited: {{data.edited}}</p>
+</body>
+
+{% endblock %}

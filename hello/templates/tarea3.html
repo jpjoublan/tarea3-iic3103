@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1>Tarea 3</h1>
+  </div>
+
+
+</div>
+
+<!-- <p>{{data}}</p> -->
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Director</th>
+        <th>Producer</th>
+        <th>Release date</th>
+        <th>Episode id</th>
+    </tr>
+    <ul>
+    {% for k in data %}
+        <tr>
+
+            <td><a href="/film/?info={{ k.node.id }}"> {{k.node.title}}</a></td>
+            <td>{{k.node.director}}</td>
+            <td>{{k.node.producers}}</td>
+            <td>{{k.node.releaseDate}}</td>
+            <td>{{k.node.episodeID}}</td>
+        </tr>
+    {% endfor %}
+    </ul>
+</table>
+
+
+{% endblock %}

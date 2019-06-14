@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1>Tarea 3</h1>
+  </div>
+
+
+</div>
+<h1> {{ data.name }} </h1>
+
+<body>
+    <p>Model: {{data.model}}</p>
+    <p>Manufacturer: {{data.manufacturers}}</p>
+    <p>Cost: {{data.costInCredits}}</p>
+    <p>Length: {{data.length}}</p>
+    <p>Max speed: {{data.maxAtmospheringSpeed}}</p>
+    <p>Crew: {{data.crew}}</p>
+    <p>Passengers: {{data.passengers}}</p>
+    <p>Cargo capacity: {{data.cargoCapacity}}</p>
+    <p>Consumables: {{data.consumables}}</p>
+    <p>Hyperdrive rating: {{data.hyperdriveRating}}</p>
+    <p>MGLT: {{data.MGLT}}</p>
+    <p>Consumables: {{data.consumables}}</p>
+    <p>Starship class: {{data.starshipClass}}</p>
+        <table>
+            <tr>
+                <th>Films</th>
+            </tr>
+            <ul>
+            {% for k in films %}
+                <tr>
+                    <td><a href="/film/?info={{ k.node.id }}"> {{k.node.title}}</a></td>
+                </tr>
+            {% endfor %}
+            </ul>
+        </table>
+        <table>
+            <tr>
+                <th>Pilots</th>
+            </tr>
+            <ul>
+            {% for i in pilots %}
+                <tr>
+                    <td><a href="/characters/?info={{ i.node.id }}"> {{i.node.name}}</a></td>
+                </tr>
+            {% endfor %}
+            </ul>
+        </table>
+    <p>Created: {{data.created}}</p>
+    <p>Edited: {{data.edited}}</p>
+</body>
+
+
+{% endblock %}

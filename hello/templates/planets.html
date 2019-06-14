@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1>Tarea 3</h1>
+  </div>
+
+
+</div>
+<h1> {{ data.name }} </h1>
+
+<body>
+    <p>Rotation period: {{data.rotationPeriod}}</p>
+    <p>Orbital period: {{data.orbitalPeriod}}</p>
+    <p>Diameter: {{data.diameter}}</p>
+    <p>Climate: {{data.climates}}</p>
+    <p>Gravity: {{data.gravity}}</p>
+    <p>Terrain: {{data.terrains}}</p>
+    <p>Population: {{data.population}}</p>
+    <p>Surface water: {{data.surfaceWater}}</p>
+        <table>
+            <tr>
+                <th>Residents</th>
+            </tr>
+            <ul>
+            {% for k in characters %}
+                <tr>
+                    <td><a href="/characters/?info={{ k.node.id }}"> {{k.node.name}}</a></td>
+                </tr>
+            {% endfor %}
+            </ul>
+        </table>
+        <table>
+            <tr>
+                <th>Films</th>
+            </tr>
+            <ul>
+            {% for j in films %}
+                <tr>
+                    <td><a href="/film/?info={{ j.node.id }}"> {{j.node.title}}</a></td>
+                </tr>
+            {% endfor %}
+            </ul>
+        </table>
+    <p>Created: {{data.created}}</p>
+    <p>Edited: {{data.edited}}</p>
+</body>
+
+
+{% endblock %}
